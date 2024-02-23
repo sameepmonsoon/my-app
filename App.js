@@ -5,10 +5,13 @@ import {
   useQuery,
 } from "@tanstack/react-query";
 const queryClient = new QueryClient();
+import { NavigationContainer } from "@react-navigation/native";
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthStack />
+      <NavigationContainer>
+        <AuthStack />
+      </NavigationContainer>
     </QueryClientProvider>
   );
 }
