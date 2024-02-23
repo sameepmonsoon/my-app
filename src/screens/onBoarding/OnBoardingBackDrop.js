@@ -3,7 +3,7 @@ import React from "react";
 import tw from "twrnc";
 
 const OnBoardingBackDrop = ({ scrollX, currentIndex, width }) => {
-  const bgs = ["#A5BBFF", "#FF63ED", "#B98EFF"];
+  const bgs = ["#DDBEFE", "#B98EFF", "#FF63ED", "#A5BBFF"];
   const newOne = Animated.modulo(
     Animated.divide(Animated.modulo(scrollX, width), new Animated.Value(width)),
     1
@@ -11,7 +11,7 @@ const OnBoardingBackDrop = ({ scrollX, currentIndex, width }) => {
 
   const bgColor = newOne.interpolate({
     inputRange: [1, 1],
-    outputRange: [bgs[currentIndex], bgs[currentIndex]],
+    outputRange: [bgs[currentIndex + 1], bgs[currentIndex]],
   });
   return (
     <Animated.View

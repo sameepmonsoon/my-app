@@ -42,18 +42,20 @@ const OnBoarding = () => {
     ref.current.scrollToOffset({ offset, animated: true });
     setCurrentSlideIndex(lastSlideIndex);
   };
-  //
+
+  //for the get started button
   const [widthAnimation] = useState(new Animated.Value(0));
   const animateWidth = () => {
     Animated.timing(widthAnimation, {
-      toValue: currentSlideIndex == 0 ? 350 : 0,
-      duration: 1000,
+      toValue: currentSlideIndex === 2 ? 350 : 200,
+      duration: 300,
       useNativeDriver: false,
     }).start();
   };
+
   useEffect(() => {
     animateWidth();
-  }, []);
+  }, [currentSlideIndex]);
 
   console.log(widthAnimation);
   return (
@@ -83,7 +85,12 @@ const OnBoarding = () => {
 
       {/* Render buttons */}
       <View style={tw`px-5 justify-between  h-15 flex w-full`}>
-        <View style={{ marginBottom: 0 }}>
+        <View
+          style={{
+            marginBottom: 0,
+            alignItems: "center",
+          }}
+        >
           {currentSlideIndex == DATA.length - 1 ? (
             <Animated.View style={{ height: 50, width: widthAnimation }}>
               <TouchableOpacity
