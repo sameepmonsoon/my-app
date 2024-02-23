@@ -18,5 +18,5 @@ const DATA = [
     subtitle: "Receive Timely Notifications",
   },
 ];
-
-export { DATA };
+const BG_COLOR = ["#B98EFF", "#A5BBFF", "#DDBEFE", "#a5d1ff"];
+export { DATA, BG_COLOR };

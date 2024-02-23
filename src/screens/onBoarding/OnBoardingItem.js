@@ -13,9 +13,7 @@ const OnBoardingItem = ({ item }) => {
         source={item.image}
         style={tw`w-[100%] flex-1 max-h-[75%] object-fill`}
       />
-      <View
-        style={tw`flex justify-between items-center w-full flex-column p-2`}
-      >
+      <View style={tw`flex justify-between items-center w-full flex-col p-2`}>
         <Text
           style={tw`text-[22px] font-bold text-center text-white mt-5 capitalize`}
         >

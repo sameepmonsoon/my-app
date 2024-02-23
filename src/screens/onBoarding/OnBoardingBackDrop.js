@@ -1,17 +1,17 @@
 import { View, Text, Animated } from "react-native";
 import React from "react";
 import tw from "twrnc";
+import { BG_COLOR } from "../../constants/screens/OnBoardingConstants";
 
 const OnBoardingBackDrop = ({ scrollX, currentIndex, width }) => {
-  const bgs = ["#DDBEFE", "#B98EFF", "#A5BBFF", "#a5ffc0"];
-  const newOne = Animated.modulo(
+  const animatedBackDrop = Animated.modulo(
     Animated.divide(Animated.modulo(scrollX, width), new Animated.Value(width)),
     1
   );
 
-  const bgColor = newOne.interpolate({
+  const bgColor = animatedBackDrop.interpolate({
     inputRange: [1, 1],
-    outputRange: [bgs[currentIndex + 1], bgs[currentIndex]],
+    outputRange: [BG_COLOR[currentIndex + 1], BG_COLOR[currentIndex]],
   });
   return (
     <Animated.View

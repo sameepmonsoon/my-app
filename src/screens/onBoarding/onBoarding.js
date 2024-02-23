@@ -13,9 +13,9 @@ import { useNavigation } from "@react-navigation/native";
 import OnBoardingItem from "./OnBoardingItem";
 import tw from "twrnc";
 import OnBoardingFooter from "./OnBoardingFooter";
-import { DATA } from "../../constants/screens/OnBoardingConstants";
+import { BG_COLOR, DATA } from "../../constants/screens/OnBoardingConstants";
 import OnBoardingBackDrop from "./OnBoardingBackDrop";
-import { IconButton } from "react-native-paper";
+import { IconButton, Colors } from "react-native-paper";
 const COLORS = { primary: "#282534", white: "#fff" };
 const OnBoarding = () => {
   const navigation = useNavigation();
@@ -57,8 +57,6 @@ const OnBoarding = () => {
   useEffect(() => {
     animateWidth();
   }, [currentSlideIndex]);
-
-  console.log(widthAnimation);
   return (
     <View style={tw`flex flex-1 justify-center items-center p-0`}>
       <OnBoardingBackDrop
@@ -156,7 +154,11 @@ const OnBoarding = () => {
                   alignItems: "center",
                 }}
               >
-                <IconButton icon="chevron-right" size={45} color="red" />
+                <IconButton
+                  icon="chevron-right"
+                  size={45}
+                  iconColor={BG_COLOR[currentSlideIndex + 1]}
+                />
               </TouchableOpacity>
             </View>
           )}
