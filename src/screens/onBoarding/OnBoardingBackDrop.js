@@ -3,7 +3,7 @@ import React from "react";
 import tw from "twrnc";
 
 const OnBoardingBackDrop = ({ scrollX, currentIndex, width }) => {
-  const bgs = ["#DDBEFE", "#B98EFF", "#FF63ED", "#A5BBFF"];
+  const bgs = ["#DDBEFE", "#B98EFF", "#A5BBFF", "#a5ffc0"];
   const newOne = Animated.modulo(
     Animated.divide(Animated.modulo(scrollX, width), new Animated.Value(width)),
     1

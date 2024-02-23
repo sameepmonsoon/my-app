@@ -16,10 +16,12 @@ const OnBoardingItem = ({ item }) => {
       <View
         style={tw`flex justify-between items-center w-full flex-column p-2`}
       >
-        <Text style={tw`text-[22px] font-bold text-center text-white mt-5`}>
+        <Text
+          style={tw`text-[22px] font-bold text-center text-white mt-5 capitalize`}
+        >
           {item.title}
         </Text>
-        <Text style={tw`text-[13px] max-w-[70%] text-center text-white mt-2`}>
+        <Text style={tw`text-[13px] max-w-[70%] text-center text-white mt-2 `}>
           {item.subtitle}
         </Text>
       </View>

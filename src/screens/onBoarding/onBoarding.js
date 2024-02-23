@@ -15,6 +15,7 @@ import tw from "twrnc";
 import OnBoardingFooter from "./OnBoardingFooter";
 import { DATA } from "../../constants/screens/OnBoardingConstants";
 import OnBoardingBackDrop from "./OnBoardingBackDrop";
+import { IconButton } from "react-native-paper";
 const COLORS = { primary: "#282534", white: "#fff" };
 const OnBoarding = () => {
   const navigation = useNavigation();
@@ -84,7 +85,7 @@ const OnBoarding = () => {
       <OnBoardingFooter slides={DATA} currentSlideIndex={currentSlideIndex} />
 
       {/* Render buttons */}
-      <View style={tw`px-5 justify-between  h-15 flex w-full`}>
+      <View style={tw`px-5 justify-between  h-17 flex w-full`}>
         <View
           style={{
             marginBottom: 0,
@@ -97,18 +98,33 @@ const OnBoarding = () => {
                 style={styles.btn}
                 onPress={() => navigation.navigate("Register")}
               >
-                <Text style={{ fontWeight: "bold", fontSize: 15 }}>
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 15,
+                    textTransform: "capitalize",
+                  }}
+                >
                   GET STARTED
                 </Text>
               </TouchableOpacity>
             </Animated.View>
           ) : (
-            <View style={{ flexDirection: "row" }}>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                flex: 1,
+                width: "100%",
+              }}
+            >
               <TouchableOpacity
                 activeOpacity={0.8}
                 style={[
                   styles.btn,
                   {
+                    width: 100,
+                    flex: 0,
                     borderColor: COLORS.white,
                     borderWidth: 1,
                     backgroundColor: "transparent",
@@ -121,6 +137,7 @@ const OnBoarding = () => {
                     fontWeight: "bold",
                     fontSize: 15,
                     color: COLORS.white,
+                    textTransform: "capitalize",
                   }}
                 >
                   SKIP
@@ -130,16 +147,16 @@ const OnBoarding = () => {
               <TouchableOpacity
                 activeOpacity={0.8}
                 onPress={goToNextSlide}
-                style={styles.btn}
+                style={{
+                  height: 50,
+                  width: 50,
+                  borderRadius: 100,
+                  backgroundColor: "#fff",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
               >
-                <Text
-                  style={{
-                    fontWeight: "bold",
-                    fontSize: 15,
-                  }}
-                >
-                  NEXT
-                </Text>
+                <IconButton icon="chevron-right" size={45} color="red" />
               </TouchableOpacity>
             </View>
           )}
